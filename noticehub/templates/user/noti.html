@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Hub</title>
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}">
+</head>
+<body>
+    
+        {% for row in result %}
+        <div class="notice">
+            <h3>{{row.subject}}</h3>
+            <h3>{{row.description}}</h3>
+            <p>Created at : {{row.created_at}}</p>
+            <p>Updated at : {{row.updated_at}}</p>
+        </div>
+        {% endfor %}
+    
+</body>
+</html>

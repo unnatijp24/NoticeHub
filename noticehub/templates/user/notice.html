@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NoticeHub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2018.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2019.css">
+<link rel="stylesheet" href="{% static 'user/css/style.css' %}">
+</head>
+<body>
+<div class="w3-pale-red">
+<!-- Header -->
+<header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+  <img class="w3-image" src="{% static 'user/images/newlj.png' %}" alt="Me" width="1500" height="600">
+  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-white w3-center w3-black w3-opacity">
+    <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">NLJIET</h1>
+    <h5 class="w3-hide-large" style="white-space:nowrap">NLJIET</h5>
+    <h3 class="w3-hide-medium w3-hide-small">Sindhu Bhavan, Ahmedabad</h3>
+  </div>
+  
+  <!-- Navbar (placed at the bottom of the header image) -->
+  <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small " style="bottom:-16px">
+    <a href="#" class="w3-bar-item w3-button w3-xlarge">Home</a>
+    <a href="#notice" class="w3-bar-item w3-button w3-xlarge">Notice</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-xlarge">Contact</a>
+  </div>
+</header>
+
+<!-- Navbar on small screens -->
+<div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium">
+<div class="w3-bar w3-light-grey">
+  <a href="#" class="w3-bar-item w3-button">Home</a>
+  <a href="#notice" class="w3-bar-item w3-button">Notice</a>
+  <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+</div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content w3-padding-large w3-margin-top w3-white w3-round" id="notice">
+
+  <!-- Notice -->
+  {% for row in result %}
+  <div class="w3-padding-large w3-2019-biking-red w3-round w3-padding-32 w3-margin-top" id="allnotice">
+    <h3 class="w3-center">{{row.subject}}</h3>
+    <hr class="w3-red">
+    <h6>{{row.description}}</h6>
+    <div class="w3-left-align"><p>Created at : {{row.created_at}}</p></div>
+    <div class="w3-left-align"><p>Updated at : {{row.updated_at}}</p></div>
+  </div>
+  {% endfor %}
+
+<!-- End page content -->
+</div>
+</div>
+</body>
+</html>
